@@ -1,0 +1,7 @@
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\bin\Debug\DigitalSignature.exe.config
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\bin\Debug\DigitalSignature.exe
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\bin\Debug\DigitalSignature.pdb
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\obj\Debug\DigitalSignature.csprojAssemblyReference.cache
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\obj\Debug\DigitalSignature.csproj.CoreCompileInputs.cache
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\obj\Debug\DigitalSignature.exe
+C:\Users\hubkn\source\repos\DigitalSignature\DigitalSignature\obj\Debug\DigitalSignature.pdb
