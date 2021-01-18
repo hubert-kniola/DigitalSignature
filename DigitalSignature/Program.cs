@@ -23,6 +23,7 @@ namespace DigitalSignature
                 var encryptedData = Functions.RSAEncryption(dataToEncrypt, RSA.ExportParameters(false), false); //szyfrowanie z kluczem prywatnym
                 Console.WriteLine($"HashCode: {RSA.ExportParameters(false).GetHashCode()}");
 
+
                 Console.Write("Signature: ");
                 foreach (var a in encryptedData)
                     Console.Write(a);
@@ -36,12 +37,40 @@ namespace DigitalSignature
                 Console.WriteLine($"Encrypted data: {Encoding.Default.GetString(decryptedData)}");
             }
 
+            using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+            {
+                Console.WriteLine("==============================");
+                RSAParameters rsaParameters;
+                var exportedPar = RSA.ExportParameters(false);
+                Console.WriteLine($"HashCode: {RSA.ExportParameters(false).GetHashCode()}");
+                var signature = RSA.SignData(dataToEncrypt, new SHA1Managed());
+
+
+                Console.Write("Signature: ");
+                foreach (var el in signature)
+                    Console.Write(el);
+                Console.WriteLine("\n");
+
+
+                RSA.ImportParameters(exportedPar);
+                var b = RSA.VerifyData(dataToEncrypt, new SHA1Managed(), signature);
+                CheckBool(b);
+            }
+
             Console.ReadKey();
         }
 
         private static void YesOrNo(string encData, string decData)
         {
             if (encData.Equals(decData))
+                Console.WriteLine("The signature is valid.");
+            else
+                Console.WriteLine("The signature is not valid");
+        }
+
+        private static void CheckBool(bool b)
+        {
+            if (b)
                 Console.WriteLine("The signature is valid.");
             else
                 Console.WriteLine("The signature is not valid");
